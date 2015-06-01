@@ -1,0 +1,41 @@
+msgid "Search"
+msgstr "Search"
+
+msgid "Call start"
+msgstr "Call start"
+
+msgid "Call end"
+msgstr "Call end"
+
+msgid "In call"
+msgstr "In call"
+
+msgid "From"
+msgstr "From"
+
+msgid "To"
+msgstr "To"
+
+msgid "Repeater"
+msgstr "Repeater"
+
+msgid "TS"
+msgstr "TS"
+
+msgid "Calltype"
+msgstr "Calltype"
+
+msgid "Priv."
+msgstr "Priv."
+
+msgid "Group"
+msgstr "Group"
+
+msgid "Avg. RSSI"
+msgstr "Avg. RSSI"
+
+msgid "RSSI"
+msgstr "RSSI"
+
+msgid "N/A"
+msgstr "N/A"

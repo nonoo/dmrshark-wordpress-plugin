@@ -1,0 +1,41 @@
+msgid "Search"
+msgstr "Keresés"
+
+msgid "Call start"
+msgstr "Start"
+
+msgid "Call end"
+msgstr "Stop"
+
+msgid "In call"
+msgstr "Hívásban"
+
+msgid "From"
+msgstr "Hívó"
+
+msgid "To"
+msgstr "Hívott"
+
+msgid "Repeater"
+msgstr "Átjátszó"
+
+msgid "TS"
+msgstr "TS"
+
+msgid "Calltype"
+msgstr "Hívástíp."
+
+msgid "Priv."
+msgstr "Priv."
+
+msgid "Group"
+msgstr "Csop."
+
+msgid "Avg. RSSI"
+msgstr "Átl. RSSI"
+
+msgid "RSSI"
+msgstr "RSSI"
+
+msgid "N/A"
+msgstr "N/A"
