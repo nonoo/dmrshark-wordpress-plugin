@@ -3,6 +3,7 @@ dmrshark-live-wordpress-plugin
 
 Wordpress plugin which displays a searchable, live amateur radio Hytera DMR network log and repeater status table.
 Data is from http://github.com/nonoo/dmrshark
+You'll need [ha5kdr-dmr-db](https://github.com/nonoo/ha5kdr-dmr-db) Wordpress plugin's actual database too.
 
 #### Usage
 
