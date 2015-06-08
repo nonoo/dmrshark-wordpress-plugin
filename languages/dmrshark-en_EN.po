@@ -39,3 +39,24 @@ msgstr "RSSI"
 
 msgid "N/A"
 msgstr "N/A"
+
+msgid "Callsign"
+msgstr "Callsign"
+
+msgid "ID"
+msgstr "ID"
+
+msgid "Type"
+msgstr "Type"
+
+msgid "FW ver."
+msgstr "FW ver."
+
+msgid "DL freq."
+msgstr "DL freq."
+
+msgid "UL freq."
+msgstr "UL freq."
+
+msgid "Last act."
+msgstr "Last act."

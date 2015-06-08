@@ -6,15 +6,15 @@
 		return strip_tags(stripslashes(trim($s)));
 	}
 
-	include('dmrshark-live-config.inc.php');
+	include('dmrshark-config.inc.php');
 
-	$conn = mysql_connect(DMRSHARK_LIVE_DB_HOST, DMRSHARK_LIVE_DB_USER, DMRSHARK_LIVE_DB_PASSWORD);
+	$conn = mysql_connect(DMRSHARK_DB_HOST, DMRSHARK_DB_USER, DMRSHARK_DB_PASSWORD);
 	if (!$conn) {
 		echo "can't connect to mysql database!\n";
 		return;
 	}
 
-	$db = mysql_select_db(DMRSHARK_LIVE_DB_NAME, $conn);
+	$db = mysql_select_db(DMRSHARK_DB_NAME, $conn);
 	if (!$db) {
 		mysql_close($conn);
 		echo "can't connect to mysql database!\n";
@@ -57,16 +57,16 @@
 		return;
 
 	// Getting record count
-	$join = 'left join `dmr-db-users` `dmr-db-users-src` on (`dmr-db-users-src`.callsignid = `dmrshark-live`.srcid) ' .
-		'left join `dmr-db-users` `dmr-db-users-dst` on (`dmr-db-users-dst`.callsignid = `dmrshark-live`.dstid) ' .
-		'left join `dmr-db-repeaters` on (`dmr-db-repeaters`.callsignid = `dmrshark-live`.repeaterid) ';
-	$result = mysql_query('select count(*) as `recordcount` from `' . DMRSHARK_LIVE_DB_TABLE . '` ' . $join . $search);
+	$join = 'left join `dmr-db-users` `dmr-db-users-src` on (`dmr-db-users-src`.callsignid = `' . DMRSHARK_DB_TABLE . '`.srcid) ' .
+		'left join `dmr-db-users` `dmr-db-users-dst` on (`dmr-db-users-dst`.callsignid = `' . DMRSHARK_DB_TABLE . '`.dstid) ' .
+		'left join `dmr-db-repeaters` on (`dmr-db-repeaters`.callsignid = `' . DMRSHARK_DB_TABLE . '`.repeaterid) ';
+	$result = mysql_query('select count(*) as `recordcount` from `' . DMRSHARK_DB_TABLE . '` ' . $join . $search);
 	$row = mysql_fetch_array($result);
 	$recordcount = $row['recordcount'];
 
-	$result = mysql_query('select `dmrshark-live`.*, unix_timestamp(`startts`) as `startts1`, unix_timestamp(`endts`) as `endts1`, ' .
+	$result = mysql_query('select `' . DMRSHARK_DB_TABLE . '`.*, unix_timestamp(`startts`) as `startts1`, unix_timestamp(`endts`) as `endts1`, ' .
 		'`dmr-db-users-src`.`callsign` as `src`, `dmr-db-users-dst`.`callsign` as `dst`, `dmr-db-repeaters`.callsign as `repeater` ' .
-		'from `' . DMRSHARK_LIVE_DB_TABLE . '` '. $join . $search . 'order by ' . mysql_real_escape_string($sorting) .
+		'from `' . DMRSHARK_DB_TABLE . '` '. $join . $search . 'order by ' . mysql_real_escape_string($sorting) .
 		' limit ' . mysql_real_escape_string($startindex) . ',' . mysql_real_escape_string($pagesize));
 
 	$rows = array();

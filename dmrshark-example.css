@@ -1,0 +1,56 @@
+#dmrshark-log-search, #dmrshark-repeaters-search {
+	text-align: right;
+}
+
+#dmrshark-log-search-string, #dmrshark-repeaters-search-string {
+	height: 15px;
+	vertical-align: middle;
+	font-size: 12px;
+}
+
+#dmrshark-log-search-button, #dmrshark-repeaters-search-button {
+	vertical-align: middle;
+}
+
+#dmrshark-log-container, #dmrshark-repeaters-container {
+	margin-top: 20px;
+	font-size: 12px;
+}
+
+#dmrshark-log-container .jtable-column-header-text, #dmrshark-repeaters-container .jtable-column-header-text {
+	color: #aaa;
+}
+
+#dmrshark-log-container table.jtable, #dmrshark-repeaters-container table.jtable {
+	margin: 0;
+}
+
+#dmrshark-log-container thead tr, #dmrshark-log-container .jtable-bottom-panel,
+#dmrshark-repeaters-container thead tr, #dmrshark-repeaters-container .jtable-bottom-panel {
+	background: #222; /* Show a solid color for older browsers */
+	background: -moz-linear-gradient(#333, #0a0a0a);
+	background: -o-linear-gradient(#333, #0a0a0a);
+	background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#333), to(#0a0a0a)); /* older webkit syntax */
+	background: -webkit-linear-gradient(#333, #0a0a0a);
+	color: #aaa;
+}
+
+#dmrshark-log-container td, #dmrshark-repeaters-container td {
+	padding: 0;
+}
+
+#dmrshark-log-container .jtable-row-even, #dmrshark-repeaters-container .jtable-row-even {
+	background-color: #eee;
+}
+
+#dmrshark-log-container .jtable-page-info, #dmrshark-repeaters-container .jtable-page-info {
+	padding-left: 10px;
+}
+
+#dmrshark-log-container table, #dmrshark-repeaters-container table { border: none; border-collapse: collapse; }
+#dmrshark-log-container table td, #dmrshark-repeaters-container table td { border-left: 1px solid #333; }
+#dmrshark-log-container table td:first-child, #dmrshark-repeaters-container table td:first-child { border-left: none; }
+
+#dmrshark-log-loader, #dmrshark-repeaters-loader {
+	float: left;
+}

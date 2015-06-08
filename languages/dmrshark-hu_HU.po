@@ -39,3 +39,24 @@ msgstr "RSSI"
 
 msgid "N/A"
 msgstr "N/A"
+
+msgid "Callsign"
+msgstr "Hívójel"
+
+msgid "ID"
+msgstr "ID"
+
+msgid "Type"
+msgstr "Típus"
+
+msgid "FW ver."
+msgstr "FW ver."
+
+msgid "DL freq."
+msgstr "Lejövő"
+
+msgid "UL freq."
+msgstr "Felmenő"
+
+msgid "Last act."
+msgstr "Utol. akt."
