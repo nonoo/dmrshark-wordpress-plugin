@@ -65,7 +65,9 @@
 	$recordcount = $row['recordcount'];
 
 	$result = mysql_query('select `' . DMRSHARK_DB_TABLE . '`.*, unix_timestamp(`startts`) as `startts1`, unix_timestamp(`endts`) as `endts1`, ' .
-		'`dmr-db-users-src`.`callsign` as `src`, `dmr-db-users-dst`.`callsign` as `dst`, `dmr-db-repeaters`.callsign as `repeater` ' .
+		'`dmr-db-users-src`.`callsign` as `src`, `dmr-db-users-src`.`name` as `srcname`, ' .
+		'`dmr-db-users-dst`.`callsign` as `dst`, `dmr-db-users-dst`.`name` as `dstname`, ' .
+		'`dmr-db-repeaters`.callsign as `repeater` ' .
 		'from `' . DMRSHARK_DB_TABLE . '` '. $join . $search . 'order by ' . mysql_real_escape_string($sorting) .
 		' limit ' . mysql_real_escape_string($startindex) . ',' . mysql_real_escape_string($pagesize));
 
@@ -76,15 +78,10 @@
 
 		if ($row['src'] == '')
 			$row['src'] = $row['srcid'];
-		unset($row['srcid']);
-
 		if ($row['dst'] == '')
 			$row['dst'] = $row['dstid'];
-		unset($row['dstid']);
-
 		if ($row['repeater'] == '')
 			$row['repeater'] = $row['repeaterid'];
-		unset($row['repeaterid']);
 
 		unset($row['startts1']);
 		unset($row['endts1']);
