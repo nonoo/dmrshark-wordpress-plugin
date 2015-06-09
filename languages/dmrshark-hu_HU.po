@@ -23,7 +23,7 @@ msgid "TS"
 msgstr "TS"
 
 msgid "Calltype"
-msgstr "Hívástíp."
+msgstr "Hív.típ."
 
 msgid "Priv."
 msgstr "Priv."
