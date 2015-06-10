@@ -8,6 +8,8 @@
 
 	include('dmrshark-config.inc.php');
 
+	header('Access-Control-Allow-Origin: ' . DMRSHARK_ALLOW_ORIGIN);
+
 	$conn = mysql_connect(DMRSHARK_DB_HOST, DMRSHARK_DB_USER, DMRSHARK_DB_PASSWORD);
 	if (!$conn) {
 		echo "can't connect to mysql database!\n";
