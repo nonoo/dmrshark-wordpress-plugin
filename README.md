@@ -12,6 +12,11 @@ You'll need [ha5kdr-dmr-db](https://github.com/nonoo/ha5kdr-dmr-db) Wordpress pl
 - Enable the plugin on the Wordpress plugin configuration page.
 - Copy **loader-example.gif** to **loader.gif**.
 
+To calculate the stats, run **dmrshark-calcstats.php** from crontab periodically (for ex. every minute).
+Don't run it under the www folder, copy it to another directory.
+
+#### Live log
+
 To show the live log, insert this to a Wordpress page or post:
 
 ```
@@ -25,3 +30,31 @@ To show the live repeater log, insert this to a Wordpress page or post:
 ```
 
 You can see a working example [here](http://ham-dmr.hu/elo-statusz/).
+
+#### Stats
+
+To show the stats table, insert this to a Wordpress page or post:
+
+```
+<dmrshark-stats />
+```
+
+To show the daily stats table, insert this to a Wordpress page or post:
+
+```
+<dmrshark-dstats />
+```
+
+To show the monthly stats table, insert this to a Wordpress page or post:
+
+```
+<dmrshark-mstats />
+```
+
+To show the yearly stats table, insert this to a Wordpress page or post:
+
+```
+<dmrshark-ystats />
+```
+
+You can see a working example [here](http://ham-dmr.hu/statisztika/).
