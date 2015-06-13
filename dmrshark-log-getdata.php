@@ -71,7 +71,7 @@
 		'`dmr-db-users-dst`.`callsign` as `dst`, `dmr-db-users-dst`.`name` as `dstname`, ' .
 		'`dmr-db-repeaters`.callsign as `repeater` ' .
 		'from `' . DMRSHARK_DB_TABLE . '` '. $join . $search . 'order by ' . mysql_real_escape_string($sorting) .
-		' limit ' . mysql_real_escape_string($startindex) . ',' . mysql_real_escape_string($pagesize));
+		', `endts` desc limit ' . mysql_real_escape_string($startindex) . ',' . mysql_real_escape_string($pagesize));
 
 	$rows = array();
 	while ($row = mysql_fetch_array($result, MYSQL_ASSOC)) {
