@@ -157,6 +157,61 @@ function dmrshark_repeaters_generate() {
 	return $out;
 }
 
+function dmrshark_stats_generate() {
+	$out = '<img id="dmrshark-stats-loader" src="' . plugins_url('loader.gif', __FILE__) . '" />' . "\n";
+	$out .= '<form id="dmrshark-stats-search">' . "\n";
+	$out .= '	<input type="text" id="dmrshark-stats-search-string" />' . "\n";
+	$out .= '	<input type="submit" id="dmrshark-stats-search-button" value="' . __('Search', 'dmrshark') . '" />' . "\n";
+	$out .= '</form>' . "\n";
+	$out .= '<div id="dmrshark-stats-container"></div>' . "\n";
+	$out .= '<script type="text/javascript">' . "\n";
+	$out .= '	var dmrshark_stats_searchfor = "";' . "\n";
+	$out .= '	$(document).ready(function () {' . "\n";
+	$out .= '		$("#dmrshark-stats-container").jtable({' . "\n";
+	$out .= '			paging: true,' . "\n";
+	$out .= '			sorting: true,' . "\n";
+	$out .= '			defaultSorting: "talktime desc",' . "\n";
+	$out .= '			loadingAnimationDelay: 1000,' . "\n";
+	$out .= '			actions: {' . "\n";
+	$out .= '				listAction: "' . plugins_url('dmrshark-stats-getdata.php', __FILE__) . '",' . "\n";
+	$out .= '			},' . "\n";
+	$out .= '			fields: {' . "\n";
+	$out .= '				callsign: { title: "' . __('Callsign', 'dmrshark') . '", display: function (data) {' . "\n";
+	$out .= '					if (data.record.callsign == null)' . "\n";
+	$out .= '						return data.record.id;' . "\n";
+	$out .= '					else' . "\n";
+	$out .= '						return "<span title=\"" + data.record.id + "\">" + data.record.callsign + " " + data.record.name + "</span>";' . "\n";
+	$out .= '				} },' . "\n";
+	$out .= '				talktime: { title: "' . __('Talktime (min.)', 'dmrshark') . '", display: function (data) {' . "\n";
+	$out .= '					return (data.record.talktime/60).toFixed(1);' . "\n";
+	$out .= '				} }' . "\n";
+	$out .= '			}' . "\n";
+	$out .= '		});' . "\n";
+	$out .= '		function dmrshark_stats_update_showloader() {' . "\n";
+	$out .= '			$("#dmrshark-stats-loader").fadeIn();' . "\n";
+	$out .= '		}' . "\n";
+	$out .= '		function dmrshark_stats_update_hideloader() {' . "\n";
+	$out .= '			$("#dmrshark-stats-loader").fadeOut();' . "\n";
+	$out .= '		}' . "\n";
+	$out .= '		function dmrshark_stats_update() {' . "\n";
+	$out .= '			$("#dmrshark-stats-container").jtable("load", {' . "\n";
+	$out .= '				searchfor: dmrshark_stats_searchfor' . "\n";
+	$out .= '			}, dmrshark_stats_update_hideloader);' . "\n";
+	$out .= '		};' . "\n";
+	$out .= '		$("#dmrshark-stats-search-button").click(function (e) {' . "\n";
+	$out .= '			e.preventDefault();' . "\n";
+	$out .= '			dmrshark_stats_update_showloader();' . "\n";
+	$out .= '			dmrshark_stats_searchfor = $("#dmrshark-stats-search-string").val();' . "\n";
+	$out .= '			dmrshark_stats_update();' . "\n";
+	$out .= '		});' . "\n";
+	$out .= '		setInterval(function() { dmrshark_stats_update_showloader(); $("#dmrshark-stats-container").jtable("reload", dmrshark_stats_update_hideloader); }, 60000);' . "\n";
+	$out .= '		dmrshark_stats_update();' . "\n";
+	$out .= '	});' . "\n";
+	$out .= '</script>' . "\n";
+
+	return $out;
+}
+
 function dmrshark_filter($content) {
     $startpos = strpos($content, '<dmrshark-');
     if ($startpos === false)
@@ -181,6 +236,17 @@ function dmrshark_filter($content) {
 		$content = str_replace($block, $out, $content);
 		$j = $endpos;
     }
+
+    for ($j=0; ($startpos = strpos($content, '<dmrshark-stats', $j)) !== false;) {
+		$endpos = strpos($content, '>', $startpos);
+		$block = substr($content, $startpos, $endpos - $startpos + 1);
+
+		$out = dmrshark_stats_generate();
+
+		$content = str_replace($block, $out, $content);
+		$j = $endpos;
+    }
+
     return $content;
 }
 load_plugin_textdomain('dmrshark', false, basename(dirname(__FILE__)) . '/languages');

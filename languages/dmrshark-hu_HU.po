@@ -60,3 +60,6 @@ msgstr "Felmenő"
 
 msgid "Last act."
 msgstr "Utol. akt."
+
+msgid "Talktime (min.)"
+msgstr "Beszédidő (perc)"

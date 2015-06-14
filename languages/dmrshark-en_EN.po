@@ -60,3 +60,6 @@ msgstr "UL freq."
 
 msgid "Last act."
 msgstr "Last act."
+
+msgid "Talktime (min.)"
+msgstr "Talktime (min.)"
