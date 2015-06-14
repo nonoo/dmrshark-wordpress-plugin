@@ -196,8 +196,8 @@ function dmrshark_stats_generate() {
 	$out .= '		dmrshark_stats_update();' . "\n";
 	$out .= '	});' . "\n";
 	$out .= '	$(document).ready(function () {' . "\n";
-	$out .= '		$("#dmrshark-stats-startts").datepicker({ dateFormat: "yy/mm/dd", defaultDate: "now", onClose: function() { dmrshark_stats_update(); } });' . "\n";
-	$out .= '		$("#dmrshark-stats-endts").datepicker({ dateFormat: "yy/mm/dd", defaultDate: "+1d", onClose: function() { dmrshark_stats_update(); } });' . "\n";
+	$out .= '		$("#dmrshark-stats-startts").datepicker({ firstDay: 1, dateFormat: "yy/mm/dd", defaultDate: "now", onClose: function() { dmrshark_stats_update(); } });' . "\n";
+	$out .= '		$("#dmrshark-stats-endts").datepicker({ firstDay: 1, dateFormat: "yy/mm/dd", defaultDate: "+1d", onClose: function() { dmrshark_stats_update(); } });' . "\n";
 	$out .= '		$("#dmrshark-stats-container").jtable({' . "\n";
 	$out .= '			paging: true,' . "\n";
 	$out .= '			sorting: true,' . "\n";
