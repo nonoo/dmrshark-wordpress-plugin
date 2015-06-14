@@ -63,3 +63,9 @@ msgstr "Last act."
 
 msgid "Talktime (min.)"
 msgstr "Talktime (min.)"
+
+msgid "From time"
+msgstr "From time"
+
+msgid "To time"
+msgstr "To time"

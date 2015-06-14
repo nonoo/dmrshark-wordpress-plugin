@@ -2,31 +2,44 @@
 	text-align: right;
 }
 
-#dmrshark-log-search-string, #dmrshark-repeaters-search-string {
+#dmrshark-stats-search-container {
+	position: relative;
+	height: 20px;
+}
+
+#dmrshark-stats-search {
+	right: 0;
+	position: absolute;
+}
+
+#dmrshark-log-search-string, #dmrshark-repeaters-search-string, #dmrshark-stats-search-string {
 	height: 15px;
 	vertical-align: middle;
 	font-size: 12px;
 }
 
-#dmrshark-log-search-button, #dmrshark-repeaters-search-button {
+#dmrshark-log-search-button, #dmrshark-repeaters-search-button, #dmrshark-stats-search-button {
 	vertical-align: middle;
 }
 
-#dmrshark-log-container, #dmrshark-repeaters-container {
+#dmrshark-log-container, #dmrshark-repeaters-container, #dmrshark-stats-container {
 	margin-top: 20px;
 	font-size: 12px;
 }
 
-#dmrshark-log-container .jtable-column-header-text, #dmrshark-repeaters-container .jtable-column-header-text {
+#dmrshark-log-container .jtable-column-header-text, #dmrshark-repeaters-container .jtable-column-header-text,
+#dmrshark-stats-container .jtable-column-header-text {
 	color: #aaa;
 }
 
-#dmrshark-log-container table.jtable, #dmrshark-repeaters-container table.jtable {
+#dmrshark-log-container table.jtable, #dmrshark-repeaters-container table.jtable,
+#dmrshark-stats-container table.jtable {
 	margin: 0;
 }
 
 #dmrshark-log-container thead tr, #dmrshark-log-container .jtable-bottom-panel,
-#dmrshark-repeaters-container thead tr, #dmrshark-repeaters-container .jtable-bottom-panel {
+#dmrshark-repeaters-container thead tr, #dmrshark-repeaters-container .jtable-bottom-panel,
+#dmrshark-stats-container thead tr, #dmrshark-stats-container .jtable-bottom-panel {
 	background: #222; /* Show a solid color for older browsers */
 	background: -moz-linear-gradient(#333, #0a0a0a);
 	background: -o-linear-gradient(#333, #0a0a0a);
@@ -35,22 +48,45 @@
 	color: #aaa;
 }
 
-#dmrshark-log-container td, #dmrshark-repeaters-container td {
+#dmrshark-log-container td, #dmrshark-repeaters-container td,
+#dmrshark-stats-container td {
 	padding: 0;
 }
 
-#dmrshark-log-container .jtable-row-even, #dmrshark-repeaters-container .jtable-row-even {
+#dmrshark-log-container .jtable-row-even, #dmrshark-repeaters-container .jtable-row-even,
+#dmrshark-stats-container .jtable-row-even {
 	background-color: #eee;
 }
 
-#dmrshark-log-container .jtable-page-info, #dmrshark-repeaters-container .jtable-page-info {
+#dmrshark-log-container .jtable-page-info, #dmrshark-repeaters-container .jtable-page-info,
+#dmrshark-stats-container .jtable-page-info {
 	padding-left: 10px;
 }
 
-#dmrshark-log-container table, #dmrshark-repeaters-container table { border: none; border-collapse: collapse; }
-#dmrshark-log-container table td, #dmrshark-repeaters-container table td { border-left: 1px solid #333; }
-#dmrshark-log-container table td:first-child, #dmrshark-repeaters-container table td:first-child { border-left: none; }
+#dmrshark-log-container table, #dmrshark-repeaters-container table, #dmrshark-stats-container table { border: none; border-collapse: collapse; }
+#dmrshark-log-container table td, #dmrshark-repeaters-container table td, #dmrshark-stats-container table td { border-left: 1px solid #333; }
+#dmrshark-log-container table td:first-child, #dmrshark-repeaters-container table td:first-child, #dmrshark-stats-container table td:first-child { border-left: none; }
 
 #dmrshark-log-loader, #dmrshark-repeaters-loader {
 	float: left;
+}
+
+#dmrshark-stats-loader {
+	float: left;
+}
+#dmrshark-stats-searchresetts {
+	left: 93px;
+	position: absolute;
+}
+#dmrshark-stats-startts {
+	width: 85px;
+	line-height: 1em;
+	position: absolute;
+	left: 125px;
+}
+#dmrshark-stats-endts {
+	width: 85px;
+	line-height: 1em;
+	position: absolute;
+	left: 225px;
 }

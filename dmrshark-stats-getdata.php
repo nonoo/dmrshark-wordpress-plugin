@@ -25,13 +25,19 @@
 	mysql_query("set charset 'utf8'");
 
 	$searchfor = sanitize($_POST['searchfor']);
+	$startts = sanitize(@$_POST['startts']);
+	$endts = sanitize(@$_POST['endts']);
+	if (empty($startts))
+		$startts = 0;
+	if (empty($endts))
+		$endts = time();
+
 	$searchtoks = explode(' ', $searchfor);
-	$search = '';
+	$search = 'where (unix_timestamp(`date`) >= ' . mysql_real_escape_string($startts) .
+		' and unix_timestamp(`date`) <= ' . mysql_real_escape_string($endts) . ') ';
+
 	for ($i = 0; $i < count($searchtoks); $i++) {
-		if ($i == 0)
-			$search = 'where ';
-		else
-			$search .= 'and ';
+		$search .= 'and ';
 
 		$searchtok = mysql_real_escape_string($searchtoks[$i]);
 		$search .= "(`id` like '%$searchtok%' or " .

@@ -63,3 +63,9 @@ msgstr "Utol. akt."
 
 msgid "Talktime (min.)"
 msgstr "Beszédidő (perc)"
+
+msgid "From time"
+msgstr "Mettől"
+
+msgid "To time"
+msgstr "Meddig"

@@ -39,22 +39,4 @@ To show the stats table, insert this to a Wordpress page or post:
 <dmrshark-stats />
 ```
 
-To show the daily stats table, insert this to a Wordpress page or post:
-
-```
-<dmrshark-dstats />
-```
-
-To show the monthly stats table, insert this to a Wordpress page or post:
-
-```
-<dmrshark-mstats />
-```
-
-To show the yearly stats table, insert this to a Wordpress page or post:
-
-```
-<dmrshark-ystats />
-```
-
 You can see a working example [here](http://ham-dmr.hu/statisztika/).
