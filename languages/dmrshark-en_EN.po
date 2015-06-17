@@ -75,3 +75,6 @@ msgstr "Today"
 
 msgid "Yesterday"
 msgstr "Yesterday"
+
+msgid "All"
+msgstr "All"

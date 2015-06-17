@@ -75,3 +75,6 @@ msgstr "Ma"
 
 msgid "Yesterday"
 msgstr "Tegnap"
+
+msgid "All"
+msgstr "Összesen"

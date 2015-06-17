@@ -7,6 +7,14 @@
 	height: 20px;
 }
 
+#dmrshark-stats-search-helper-container {
+	position: relative;
+	height: 20px;
+	width: 313px;
+	text-align: right;
+	top: 10px;
+}
+
 #dmrshark-stats-search {
 	right: 0;
 	position: absolute;

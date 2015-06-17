@@ -160,7 +160,6 @@ function dmrshark_repeaters_generate() {
 function dmrshark_stats_generate() {
 	$out = '<img id="dmrshark-stats-loader" src="' . plugins_url('loader.gif', __FILE__) . '" />' . "\n";
 	$out .= '<div id="dmrshark-stats-search-container">' . "\n";
-	$out .= '	<input type="button" id="dmrshark-stats-searchresetts" value="X" onclick="javascript:dmrshark_stats_resetts();" />' . "\n";
 	$out .= '	<input type="text" id="dmrshark-stats-startts" placeholder="' . __('From time', 'dmrshark') . '"/>' . "\n";
 	$out .= '	<input type="text" id="dmrshark-stats-endts" placeholder="' . __('To time', 'dmrshark') . '"/>' . "\n";
 	$out .= '	<form id="dmrshark-stats-search">' . "\n";
@@ -169,6 +168,7 @@ function dmrshark_stats_generate() {
 	$out .= '	</form>' . "\n";
 	$out .= '</div>' . "\n";
 	$out .= '<div id="dmrshark-stats-search-helper-container">' . "\n";
+	$out .= '	<input type="button" id="dmrshark-stats-searchhelper-all" value="' . __('All', 'dmrshark') . '" onclick="javascript:dmrshark_stats_resetts();" />' . "\n";
 	$out .= '	<input type="button" id="dmrshark-stats-searchhelper-today" value="' . __('Today', 'dmrshark') . '" onclick="javascript:dmrshark_stats_helper_today();" />' . "\n";
 	$out .= '	<input type="button" id="dmrshark-stats-searchhelper-yesterday" value="' . __('Yesterday', 'dmrshark') . '" onclick="javascript:dmrshark_stats_helper_yesterday();" />' . "\n";
 	$out .= '</div>' . "\n";
@@ -233,7 +233,7 @@ function dmrshark_stats_generate() {
 	$out .= '			}' . "\n";
 	$out .= '		});' . "\n";
 	$out .= '		setInterval(function() { dmrshark_stats_update_showloader(); $("#dmrshark-stats-container").jtable("reload", dmrshark_stats_update_hideloader); }, 60000);' . "\n";
-	$out .= '		dmrshark_stats_update();' . "\n";
+	$out .= '		dmrshark_stats_helper_today();' . "\n";
 	$out .= '	});' . "\n";
 	$out .= '</script>' . "\n";
 
