@@ -63,12 +63,16 @@ function dmrshark_log_generate() {
 	$out .= '				avgrssi: { title: "' . __('Avg. RSSI', 'dmrshark') . '", width: "7%", display: function (data) {' . "\n";
 	$out .= '					if (data.record.avgrssi == "0")' . "\n";
 	$out .= '						return "' . __('N/A', 'dmrshark') . '";' . "\n";
+	$out .= '					else if (data.record.avgrssi < -125)' . "\n";
+	$out .= '						return "' . __('Disc.', 'dmrshark') . '";' . "\n";
 	$out .= '					else' . "\n";
 	$out .= '						return data.record.avgrssi;' . "\n";
 	$out .= '				} },' . "\n";
 	$out .= '				currrssi: { title: "' . __('RSSI', 'dmrshark') . '", width: "4%", display: function (data) {' . "\n";
 	$out .= '					if (data.record.currrssi == "0")' . "\n";
 	$out .= '						return "' . __('N/A', 'dmrshark') . '";' . "\n";
+	$out .= '					else if (data.record.currrssi < -125)' . "\n";
+	$out .= '						return "' . __('Disc.', 'dmrshark') . '";' . "\n";
 	$out .= '					else' . "\n";
 	$out .= '						return data.record.currrssi;' . "\n";
 	$out .= '				} }' . "\n";

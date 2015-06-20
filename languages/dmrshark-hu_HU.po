@@ -40,6 +40,9 @@ msgstr "RSSI"
 msgid "N/A"
 msgstr "N/A"
 
+msgid "Disc."
+msgstr "Leszakadt"
+
 msgid "Callsign"
 msgstr "Hívójel"
 

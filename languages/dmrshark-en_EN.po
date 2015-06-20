@@ -40,6 +40,9 @@ msgstr "RSSI"
 msgid "N/A"
 msgstr "N/A"
 
+msgid "Disc."
+msgstr "Disc."
+
 msgid "Callsign"
 msgstr "Callsign"
 
