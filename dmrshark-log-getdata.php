@@ -8,6 +8,8 @@
 
 	include('dmrshark-config.inc.php');
 
+	date_default_timezone_set(DMRSHARK_TIMEZONE);
+
 	header('Access-Control-Allow-Origin: ' . DMRSHARK_ALLOW_ORIGIN);
 
 	$conn = mysql_connect(DMRSHARK_DB_HOST, DMRSHARK_DB_USER, DMRSHARK_DB_PASSWORD);
@@ -76,7 +78,10 @@
 	$rows = array();
 	while ($row = mysql_fetch_array($result, MYSQL_ASSOC)) {
 		$row['startts'] = date('H:i:s', $row['startts1']);
-		$row['endts'] = date('H:i:s', $row['endts1']);
+		if ($row['endts1'] == 0)
+			$row['endts'] = '00:00:00';
+		else
+			$row['endts'] = date('H:i:s', $row['endts1']);
 
 		if ($row['src'] == '')
 			$row['src'] = $row['srcid'];

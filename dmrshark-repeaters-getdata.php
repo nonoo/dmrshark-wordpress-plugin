@@ -8,6 +8,8 @@
 
 	include('dmrshark-config.inc.php');
 
+	date_default_timezone_set(DMRSHARK_TIMEZONE);
+
 	header('Access-Control-Allow-Origin: ' . DMRSHARK_ALLOW_ORIGIN);
 
 	$conn = mysql_connect(DMRSHARK_DB_HOST, DMRSHARK_DB_USER, DMRSHARK_DB_PASSWORD);

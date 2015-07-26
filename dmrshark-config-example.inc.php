@@ -7,4 +7,5 @@
 	define('DMRSHARK_REPEATERS_DB_TABLE',			'dmrshark-repeaters');
 	define('DMRSHARK_STATS_DB_TABLE',				'dmrshark-stats');
 	define('DMRSHARK_ALLOW_ORIGIN',					'http://live.ham-dmr.hu');
+	define('DMRSHARK_TIMEZONE',						'Europe/Budapest'');
 ?>
