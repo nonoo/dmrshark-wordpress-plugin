@@ -31,11 +31,11 @@ msgstr "Priv."
 msgid "Group"
 msgstr "Csop."
 
-msgid "Avg. RSSI"
-msgstr "Átl. RSSI"
+msgid "RSSI/avg."
+msgstr "RSSI/átl."
 
-msgid "RSSI"
-msgstr "RSSI"
+msgid "Vol./avg."
+msgstr "Hangerő/átl."
 
 msgid "N/A"
 msgstr "N/A"

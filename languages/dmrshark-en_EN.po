@@ -31,11 +31,11 @@ msgstr "Priv."
 msgid "Group"
 msgstr "Group"
 
-msgid "Avg. RSSI"
-msgstr "Avg. RSSI"
+msgid "RSSI/avg."
+msgstr "RSSI/avg."
 
-msgid "RSSI"
-msgstr "RSSI"
+msgid "Vol./avg."
+msgstr "Vol./avg."
 
 msgid "N/A"
 msgstr "N/A"

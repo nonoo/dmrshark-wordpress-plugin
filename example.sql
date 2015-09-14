@@ -7,7 +7,9 @@ CREATE TABLE IF NOT EXISTS `dmrshark-log` (
   `startts` datetime NOT NULL,
   `endts` datetime NOT NULL,
   `currrssi` smallint(6) NOT NULL,
-  `avgrssi` double NOT NULL,
+  `avgrssi` smallint(6) NOT NULL,
+  `currrmsvol` tinyint(4) NOT NULL DEFAULT '127',
+  `avgrmsvol` tinyint(4) NOT NULL DEFAULT '127',
   PRIMARY KEY (`srcid`,`startts`,`repeaterid`,`timeslot`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
