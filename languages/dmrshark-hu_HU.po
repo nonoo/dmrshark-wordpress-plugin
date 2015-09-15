@@ -26,10 +26,10 @@ msgid "Calltype"
 msgstr "Hív.típ."
 
 msgid "Priv."
-msgstr "Priv."
+msgstr "priv."
 
 msgid "Group"
-msgstr "Csop."
+msgstr "csop."
 
 msgid "RSSI/avg."
 msgstr "RSSI/átl."

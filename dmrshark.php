@@ -45,7 +45,8 @@ function dmrshark_log_generate() {
 	$out .= '				dst: { title: "' . __('To', 'dmrshark') . '", display: function (data) {' . "\n";
 	$out .= '					txt = data.record.dstid;' . "\n";
 	$out .= '					if (data.record.dstname != null) txt += " " + data.record.dstname;' . "\n";
-	$out .= '					return "<span title=\"" + txt + "\">" + data.record.dst + "</span>";' . "\n";
+	$out .= '					calltype = (data.record.calltype == 0 ? "' . __('Priv.', 'dmrshark') . '" : "' . __('Group', 'dmrshark') . '");' . "\n";
+	$out .= '					return "<span title=\"" + txt + "\">" + data.record.dst + " (" + calltype + ")</span>";' . "\n";
 	$out .= '				} },' . "\n";
 	$out .= '				repeater: { title: "' . __('Repeater', 'dmrshark') . '", width: "5%", display: function (data) {' . "\n";
 	$out .= '					if (data.record.repeater == "0")' . "\n";
@@ -54,12 +55,6 @@ function dmrshark_log_generate() {
 	$out .= '						return "<span title=\"" + data.record.repeaterid + "\">" + data.record.repeater + "</span>";' . "\n";
 	$out .= '				} },' . "\n";
 	$out .= '				timeslot: { title: "' . __('TS', 'dmrshark') . '", width: "3%" },' . "\n";
-	$out .= '				calltype: { title: "' . __('Calltype', 'dmrshark') . '", width: "4%", display: function (data) {' . "\n";
-	$out .= '					if (data.record.calltype == 0)' . "\n";
-	$out .= '						return "' . __('Priv.', 'dmrshark') . '";' . "\n";
-	$out .= '					else' . "\n";
-	$out .= '						return "' . __('Group', 'dmrshark') . '";' . "\n";
-	$out .= '				} },' . "\n";
 	$out .= '				rssi: { title: "' . __('RSSI/avg.', 'dmrshark') . '", listClass: "rssi", display: function (data) {' . "\n";
 	$out .= '					if (data.record.currrssi < -130 || data.record.avgrssi < -130)' . "\n";
 	$out .= '						return "Leszakadt";' . "\n";
