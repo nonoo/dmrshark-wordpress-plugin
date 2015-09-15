@@ -16,11 +16,8 @@ msgstr "From"
 msgid "To"
 msgstr "To"
 
-msgid "Repeater"
-msgstr "Repeater"
-
-msgid "TS"
-msgstr "TS"
+msgid "Repeater/TS"
+msgstr "Repeater/TS"
 
 msgid "Calltype"
 msgstr "Calltype"

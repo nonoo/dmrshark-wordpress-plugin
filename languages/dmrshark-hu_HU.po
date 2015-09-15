@@ -16,11 +16,8 @@ msgstr "Hívó"
 msgid "To"
 msgstr "Hívott"
 
-msgid "Repeater"
-msgstr "Átjátszó"
-
-msgid "TS"
-msgstr "TS"
+msgid "Repeater/TS"
+msgstr "Átjátszó/TS"
 
 msgid "Calltype"
 msgstr "Hív.típ."
