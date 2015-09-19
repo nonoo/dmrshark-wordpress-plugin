@@ -44,6 +44,11 @@
 			"`fwversion` like '%$searchtok%' or " .
 			"`dlfreq` like '%$searchtok%' or " .
 			"`ulfreq` like '%$searchtok%' or " .
+			"`psuvoltage` like '%$searchtok%' or " .
+			"`patemperature` like '%$searchtok%' or " .
+			"`vswr` like '%$searchtok%' or " .
+			"`txfwdpower` like '%$searchtok%' or " .
+			"`txrefpower` like '%$searchtok%' or " .
 			"`lastactive` like '%$searchtok%') ";
 	}
 

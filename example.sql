@@ -20,6 +20,12 @@ CREATE TABLE IF NOT EXISTS `dmrshark-repeaters` (
   `fwversion` varchar(25) NOT NULL,
   `dlfreq` int(10) unsigned NOT NULL,
   `ulfreq` int(10) unsigned NOT NULL,
+  `psuvoltage` float NOT NULL,
+  `patemperature` float NOT NULL,
+  `vswr` float NOT NULL,
+  `txfwdpower` float NOT NULL,
+  `txrefpower` float NOT NULL,
+  `lastactive` datetime NOT NULL,
   `lastactive` datetime NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `callsign` (`callsign`)
