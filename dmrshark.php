@@ -97,6 +97,11 @@ function dmrshark_log_generate() {
 	$out .= '						avgvol_volclass = "unkown";' . "\n";
 	$out .= '					return "<span class=\"currvol\">" + vol_str + "</span><span class=\"separator\">/</span><span class=\"avgvol\">" +' . "\n";
 	$out .= '						avg_vol_str + "</span><div class=\"avgvol-display avgvol-" + avgvol_volclass + "\"></div>";' . "\n";
+	$out .= '				} },' . "\n";
+	$out .= '				info: { title: "' . __('Info', 'dmrshark') . '", display: function (data) {' . "\n";
+	$out .= '					if (data.record.datatype == "unknown")' . "\n";
+	$out .= '						return "";' . "\n";
+	$out .= '					return "<cite style=\"cursor: help;\" title=\"" + data.record.datadecoded + "\">" + data.record.datatype + "</cite>";' . "\n";
 	$out .= '				} }' . "\n";
 	$out .= '			}' . "\n";
 	$out .= '		});' . "\n";

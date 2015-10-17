@@ -34,6 +34,9 @@ msgstr "RSSI/avg."
 msgid "Vol./avg."
 msgstr "Vol./avg."
 
+msgid "Info"
+msgstr "Info"
+
 msgid "N/A"
 msgstr "N/A"
 
