@@ -6,12 +6,14 @@ CREATE TABLE IF NOT EXISTS `dmrshark-log` (
   `calltype` tinyint(4) NOT NULL,
   `startts` datetime NOT NULL,
   `endts` datetime NOT NULL,
-  `currrssi` smallint(6) NOT NULL,
-  `avgrssi` smallint(6) NOT NULL,
+  `currrssi` smallint(6) NOT NULL DEFAULT '0',
+  `avgrssi` smallint(6) NOT NULL DEFAULT '0',
   `currrmsvol` tinyint(4) NOT NULL DEFAULT '127',
   `avgrmsvol` tinyint(4) NOT NULL DEFAULT '127',
+  `datatype` enum('unknown','normal sms','motorola tms sms') NOT NULL,
+  `datadecoded` varchar(1500) NOT NULL,
   PRIMARY KEY (`srcid`,`startts`,`repeaterid`,`timeslot`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8; 
 
 CREATE TABLE IF NOT EXISTS `dmrshark-repeaters` (
   `callsign` varchar(25) NOT NULL,
