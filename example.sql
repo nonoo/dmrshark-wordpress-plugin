@@ -43,3 +43,12 @@ CREATE TABLE IF NOT EXISTS `dmrshark-msg-queue` (
   PRIMARY KEY (`index`),
   UNIQUE KEY `secondary` (`srcid`,`dstid`,`msg`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3;
+
+CREATE TABLE IF NOT EXISTS `dmrshark-emails-out` (
+  `dstemail` varchar(50) NOT NULL,
+  `srcid` int(11) NOT NULL,
+  `state` enum('waiting','success') NOT NULL DEFAULT 'waiting',
+  `msg` varchar(250) NOT NULL,
+  `addedat` datetime NOT NULL,
+  PRIMARY KEY (`dstemail`,`srcid`,`addedat`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
