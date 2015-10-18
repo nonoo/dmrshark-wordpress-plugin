@@ -32,3 +32,14 @@ CREATE TABLE IF NOT EXISTS `dmrshark-repeaters` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `callsign` (`callsign`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE IF NOT EXISTS `dmrshark-msg-queue` (
+  `index` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `srcid` int(11) NOT NULL,
+  `dstid` int(11) NOT NULL,
+  `state` enum('waiting','processing','success','failure') NOT NULL DEFAULT 'waiting',
+  `msg` varchar(250) NOT NULL,
+  `addedat` datetime NOT NULL,
+  PRIMARY KEY (`index`),
+  UNIQUE KEY `secondary` (`srcid`,`dstid`,`msg`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3;
