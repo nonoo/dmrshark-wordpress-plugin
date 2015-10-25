@@ -103,7 +103,7 @@ function dmrshark_log_generate() {
 	$out .= '						case "unknown":	return "";' . "\n";
 	$out .= '						case "gps position":' . "\n";
 	$out .= '							aprscallsign = data.record.src + "-" + data.record.dstid.slice(-1);' . "\n";
-	$out .= '							return "<cite><a href=\"http://aprs.fi/#!call=" + aprscallsign + "\" target=\"_blank\">' . __('gps position', 'dmrshark') . '</a></cite>";' . "\n";
+	$out .= '							return "<cite style=\"cursor: help;\" title=\"" + data.record.datadecoded + "\"><a href=\"http://aprs.fi/#!call=" + aprscallsign + "\" target=\"_blank\">' . __('gps position', 'dmrshark') . '</a></cite>";' . "\n";
 	$out .= '						default: break;' . "\n";
 	$out .= '					}' . "\n";
 	$out .= '					return "<cite style=\"cursor: help;\" title=\"" + data.record.datadecoded + "\">" + data.record.datatype + "</cite>";' . "\n";
