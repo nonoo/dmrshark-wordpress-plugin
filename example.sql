@@ -10,7 +10,7 @@ CREATE TABLE IF NOT EXISTS `dmrshark-log` (
   `avgrssi` smallint(6) NOT NULL DEFAULT '0',
   `currrmsvol` tinyint(4) NOT NULL DEFAULT '127',
   `avgrmsvol` tinyint(4) NOT NULL DEFAULT '127',
-  `datatype` enum('unknown','normal sms','motorola tms sms') NOT NULL,
+  `datatype` enum('unknown','normal sms','motorola tms sms','gps position') NOT NULL,
   `datadecoded` varchar(1500) NOT NULL,
   PRIMARY KEY (`srcid`,`startts`,`repeaterid`,`timeslot`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8; 
@@ -39,6 +39,7 @@ CREATE TABLE IF NOT EXISTS `dmrshark-msg-queue` (
   `dstid` int(11) NOT NULL,
   `state` enum('waiting','processing','success','failure') NOT NULL DEFAULT 'waiting',
   `msg` varchar(250) NOT NULL,
+  `type` enum('all','normal','motorola') NOT NULL DEFAULT 'all',
   `addedat` datetime NOT NULL,
   PRIMARY KEY (`index`),
   UNIQUE KEY `secondary` (`srcid`,`dstid`,`msg`)

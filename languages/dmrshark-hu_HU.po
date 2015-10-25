@@ -81,3 +81,6 @@ msgstr "Tegnap"
 
 msgid "All"
 msgstr "Összesen"
+
+msgid "gps position"
+msgstr "gps pozíció"

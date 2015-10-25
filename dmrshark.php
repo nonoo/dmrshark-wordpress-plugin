@@ -99,8 +99,13 @@ function dmrshark_log_generate() {
 	$out .= '						avg_vol_str + "</span><div class=\"avgvol-display avgvol-" + avgvol_volclass + "\"></div>";' . "\n";
 	$out .= '				} },' . "\n";
 	$out .= '				info: { title: "' . __('Info', 'dmrshark') . '", display: function (data) {' . "\n";
-	$out .= '					if (data.record.datatype == "unknown")' . "\n";
-	$out .= '						return "";' . "\n";
+	$out .= '					switch (data.record.datatype) {' . "\n";
+	$out .= '						case "unknown":	return "";' . "\n";
+	$out .= '						case "gps position":' . "\n";
+	$out .= '							aprscallsign = data.record.src + "-" + data.record.dstid.slice(-1);' . "\n";
+	$out .= '							return "<cite><a href=\"http://aprs.fi/#!call=" + aprscallsign + "\" target=\"_blank\">' . __('gps position', 'dmrshark') . '</a></cite>";' . "\n";
+	$out .= '						default: break;' . "\n";
+	$out .= '					}' . "\n";
 	$out .= '					return "<cite style=\"cursor: help;\" title=\"" + data.record.datadecoded + "\">" + data.record.datatype + "</cite>";' . "\n";
 	$out .= '				} }' . "\n";
 	$out .= '			}' . "\n";
