@@ -12,21 +12,14 @@
 
 	header('Access-Control-Allow-Origin: ' . DMRSHARK_ALLOW_ORIGIN);
 
-	$conn = mysql_connect(DMRSHARK_DB_HOST, DMRSHARK_DB_USER, DMRSHARK_DB_PASSWORD);
+	$conn = mysqli_connect(DMRSHARK_DB_HOST, DMRSHARK_DB_USER, DMRSHARK_DB_PASSWORD, DMRSHARK_DB_NAME);
 	if (!$conn) {
 		echo "can't connect to mysql database!\n";
 		return;
 	}
 
-	$db = mysql_select_db(DMRSHARK_DB_NAME, $conn);
-	if (!$db) {
-		mysql_close($conn);
-		echo "can't connect to mysql database!\n";
-		return;
-	}
-
-	mysql_query("set names 'utf8'");
-	mysql_query("set charset 'utf8'");
+	$conn->query("set names 'utf8'");
+	$conn->query("set charset 'utf8'");
 
 	$searchfor = sanitize($_POST['searchfor']);
 	$searchtoks = explode(' ', $searchfor);
@@ -37,7 +30,7 @@
 		else
 			$search .= 'and ';
 
-		$searchtok = mysql_real_escape_string($searchtoks[$i]);
+		$searchtok = $conn->escape_string($searchtoks[$i]);
 		$search .= "(`startts` like '%$searchtok%' or " .
 			"`endts` like '%$searchtok%' or " .
 			"`srcid` like '%$searchtok%' or " .
@@ -64,19 +57,19 @@
 	$join = 'left join `dmr-db-users` `dmr-db-users-src` on (`dmr-db-users-src`.callsignid = `' . DMRSHARK_DB_TABLE . '`.srcid) ' .
 		'left join `dmr-db-users` `dmr-db-users-dst` on (`dmr-db-users-dst`.callsignid = `' . DMRSHARK_DB_TABLE . '`.dstid) ' .
 		'left join `dmr-db-repeaters` on (`dmr-db-repeaters`.callsignid = `' . DMRSHARK_DB_TABLE . '`.repeaterid) ';
-	$result = mysql_query('select count(*) as `recordcount` from `' . DMRSHARK_DB_TABLE . '` ' . $join . $search);
-	$row = mysql_fetch_array($result);
+	$result = $conn->query('select count(*) as `recordcount` from `' . DMRSHARK_DB_TABLE . '` ' . $join . $search);
+	$row = $result->fetch_array();
 	$recordcount = $row['recordcount'];
 
-	$result = mysql_query('select `' . DMRSHARK_DB_TABLE . '`.*, unix_timestamp(`startts`) as `startts1`, unix_timestamp(`endts`) as `endts1`, ' .
+	$result = $conn->query('select `' . DMRSHARK_DB_TABLE . '`.*, unix_timestamp(`startts`) as `startts1`, unix_timestamp(`endts`) as `endts1`, ' .
 		'`dmr-db-users-src`.`callsign` as `src`, `dmr-db-users-src`.`name` as `srcname`, ' .
 		'`dmr-db-users-dst`.`callsign` as `dst`, `dmr-db-users-dst`.`name` as `dstname`, ' .
 		'`dmr-db-repeaters`.callsign as `repeater` ' .
-		'from `' . DMRSHARK_DB_TABLE . '` '. $join . $search . 'order by ' . mysql_real_escape_string($sorting) .
-		', `endts` desc limit ' . mysql_real_escape_string($startindex) . ',' . mysql_real_escape_string($pagesize));
+		'from `' . DMRSHARK_DB_TABLE . '` '. $join . $search . 'order by ' . $conn->escape_string($sorting) .
+		', `endts` desc limit ' . $conn->escape_string($startindex) . ',' . $conn->escape_string($pagesize));
 
 	$rows = array();
-	while ($row = mysql_fetch_array($result, MYSQL_ASSOC)) {
+	while ($row = $result->fetch_array(MYSQLI_ASSOC)) {
 		$row['startts'] = date('H:i:s', $row['startts1']);
 		if ($row['endts1'] == 0)
 			$row['endts'] = '00:00:00';
@@ -101,5 +94,5 @@
 	$jtableresult['Records'] = $rows;
 	echo json_encode($jtableresult);
 
-	mysql_close($conn);
+	$conn->close();
 ?>
