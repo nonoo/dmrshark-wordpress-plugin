@@ -21,6 +21,7 @@
 	$conn->query("set names 'utf8'");
 	$conn->query("set charset 'utf8'");
 
+	$showgpspos = (sanitize($_POST['showgpspos']) == 'true');
 	$searchfor = sanitize($_POST['searchfor']);
 	$searchtoks = explode(' ', $searchfor);
 	$search = '';
@@ -44,6 +45,9 @@
 			"`currrssi` like '%$searchtok%' or " .
 			"`avgrssi` like '%$searchtok%') ";
 	}
+
+	if (!$showgpspos)
+		$search .= 'and `datatype` != "gps position"';
 
 	$sorting = sanitize($_GET['jtSorting']);
 	$startindex = sanitize($_GET['jtStartIndex']);
