@@ -62,6 +62,8 @@
 	while ($row = $result->fetch_array(MYSQLI_ASSOC)) {
 		if ($row['id'] == 0) // Ignore last calc timestamp which is stored in ID 0.
 			continue;
+		if ($row['callsign'] == '')
+			continue;
 	    $rows[] = $row;
 	}
 
