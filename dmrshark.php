@@ -273,6 +273,9 @@ function dmrshark_stats_generate() {
 	$out .= '				listAction: "' . plugins_url('dmrshark-stats-getdata.php', __FILE__) . '"' . "\n";
 	$out .= '			},' . "\n";
 	$out .= '			fields: {' . "\n";
+	$out .= '				nr: { title: "#", width: "1%", display: function (data) {' . "\n";
+	$out .= '					return data.record.nr;' . "\n";
+	$out .= '				} },' . "\n";
 	$out .= '				callsign: { title: "' . __('Callsign', 'dmrshark') . '", display: function (data) {' . "\n";
 	$out .= '					if (data.record.callsign == null)' . "\n";
 	$out .= '						return data.record.id;' . "\n";

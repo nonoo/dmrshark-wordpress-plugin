@@ -59,11 +59,13 @@
 		' limit ' . $conn->escape_string($startindex) . ',' . $conn->escape_string($pagesize));
 
 	$rows = array();
+	$nr = $startindex+1;
 	while ($row = $result->fetch_array(MYSQLI_ASSOC)) {
 		if ($row['id'] == 0) // Ignore last calc timestamp which is stored in ID 0.
 			continue;
 		if ($row['callsign'] == '')
 			continue;
+		$row['nr'] = $nr++;
 	    $rows[] = $row;
 	}
 
